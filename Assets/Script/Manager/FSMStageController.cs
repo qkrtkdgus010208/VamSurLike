@@ -17,6 +17,8 @@ public class FSMStageController
         }
     }
 
+    private FSM stageFSM = null;
+
     public void Init()
     {
 
@@ -47,6 +49,4 @@ public class FSMStageController
             stageFSM.OnUpdateState(inDeltaTime);
         }
     }
-
-    private FSM stageFSM = null;
 }
