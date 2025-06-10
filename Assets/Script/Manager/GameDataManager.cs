@@ -19,30 +19,30 @@ public class GameDataManager
 
     public GameObject GetMyPcObject()
     {
-        return mMyPc;
+        return MyPc;
     }
 
     public Transform GetSpawnRootTransform()
     {
-        return mSpawnRoot;
+        return SpawnRoot;
     }
 
     public Transform GetItemRootTransform()
     {
-        return mItemRoot;
+        return ItemRoot;
     }
 
     public Transform GetSkillRootTransform()
     {
-        return mSkillRoot;
+        return SkillRoot;
     }
 
-    public int mStage { get; private set; }
+    public int Stage { get; private set; }
 
-    private GameObject mMyPc;
-    private Transform mSpawnRoot;
-    private Transform mSkillRoot;
-    private Transform mItemRoot;
+    private GameObject MyPc;
+    private Transform SpawnRoot;
+    private Transform SkillRoot;
+    private Transform ItemRoot;
 
     public void Init()
     {
@@ -51,24 +51,24 @@ public class GameDataManager
 
     public void Clear()
     {
-        mStage = 0;
-        mMyPc = null;
-        mSpawnRoot = null;
-        mSkillRoot = null;
-        mItemRoot = null;
+        Stage = 0;
+        MyPc = null;
+        SpawnRoot = null;
+        SkillRoot = null;
+        ItemRoot = null;
     }
 
-    public void SetStageData(GameObject InMyPc, Transform InSpawnRoot, Transform InSkillRoot, Transform InItemRoot)
+    public void SetStageData(GameObject inMyPc, Transform inSpawnRoot, Transform inSkillRoot, Transform inItemRoot)
     {
-        mMyPc = InMyPc;
-        mSpawnRoot = InSpawnRoot;  
-        mSkillRoot = InSkillRoot;   
-        mItemRoot = InItemRoot;
+        MyPc = inMyPc;
+        SpawnRoot = inSpawnRoot;  
+        SkillRoot = inSkillRoot;   
+        ItemRoot = inItemRoot;
 
     }
 
     public void SetCurrentStage(int stage)
     {
-        mStage = stage;
+        Stage = stage;
     }
 }

@@ -3,21 +3,23 @@
 public class GameManager : MonoBehaviour
 {
     public int mStageId = 1;
-    public GameObject mMyPc;
-    public Transform mNpcSpawnParent;
-    public Transform mSkillObjectParent;
-    public Transform mItemObjectParent;
+    public GameObject MyPc;
+    public Transform NpcSpawnParent;
+    public Transform SkillObjectParent;
+    public Transform ItemObjectParent;
 
     void Start()
     {
         GameDataManager.Instance.Init();
-        GameDataManager.Instance.SetStageData(mMyPc, mNpcSpawnParent, mSkillObjectParent, mItemObjectParent);
+        GameDataManager.Instance.SetStageData(MyPc, NpcSpawnParent, SkillObjectParent, ItemObjectParent);
         GameDataManager.Instance.SetCurrentStage(mStageId);
 
         GamePoolManager.Instance.Init();
         GameControl.Instance.Init();
         SpawnManager.Instance.Init();
         FSMStageController.Instance.Init();
+
+        FSMStageController.Instance.EnterStage();
     }
 
     void OnDestroy()
@@ -32,6 +34,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        FSMStageController.Instance.OnUpdate(Time.deltaTime);
     }
 }
