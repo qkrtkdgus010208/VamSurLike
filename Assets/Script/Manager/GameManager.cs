@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        GameDataManager.Instance.Init();
+        GameDataManager.Instance.SetStageData(mMyPc, mNpcSpawnParent, mSkillObjectParent, mItemObjectParent);
+        GameDataManager.Instance.SetCurrentStage(mStageId);
+
         GamePoolManager.Instance.Init();
         GameControl.Instance.Init();
         SpawnManager.Instance.Init();
@@ -18,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
+        GameDataManager.Instance.Clear();
+
         GamePoolManager.Instance.Clear();
         GameControl.Instance.Clear();
         SpawnManager.Instance.Clear();
