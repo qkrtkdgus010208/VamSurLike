@@ -6,11 +6,40 @@ public class MyPcUnitMovement : UnitMovementBase
 {
     void Start()
     {
-        
+        GameControl.Instance.OnMoving += HandleMove;
+        GameControl.Instance.OnMoveStarting += HandleMoveStart;
+        GameControl.Instance.OnMoveEnding += HandleMoveEnd;
     }
 
-    void Update()
+    void OnDestroy()
     {
-        
+        GameControl.Instance.OnMoving -= HandleMove;
+        GameControl.Instance.OnMoveStarting -= HandleMoveStart;
+        GameControl.Instance.OnMoveEnding -= HandleMoveEnd;
+    }
+
+    private void HandleMove(Vector3 direct)
+    {
+        // 이동
+        transform.position += direct * speed * Time.deltaTime;
+
+        //회전
+        rotationTrf.rotation = Quaternion.RotateTowards(rotationTrf.rotation, Quaternion.LookRotation(direct), rotationSpeed * Time.deltaTime);
+    }
+
+    private void HandleMoveStart()
+    {
+        if (animator != null)
+        {
+            animator.CrossFade("Run", 0.1f);
+        }
+    }
+
+    private void HandleMoveEnd()
+    {
+        if (animator != null)
+        {
+            animator.CrossFade("Idle", 0.1f);
+        }
     }
 }
