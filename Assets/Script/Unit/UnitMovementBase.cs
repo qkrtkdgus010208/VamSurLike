@@ -19,10 +19,10 @@ public class UnitMovementBase : MonoBehaviour
         // 높이 계산
         Vector3 nowPostion = transform.position + new Vector3(0, 100, 0);
         Vector3 direction = new Vector3(0, -1, 0);
-        RaycastHit hit;
+
         int layermask = 1 << LayerMask.NameToLayer("Terrain");
 
-        if (Physics.Raycast(nowPostion, direction, out hit, 200, layermask))
+        if (Physics.Raycast(nowPostion, direction, out RaycastHit hit, 200, layermask))
         {
             float height = hit.point.y;
             Vector3 newPos = transform.position;

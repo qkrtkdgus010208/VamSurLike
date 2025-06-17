@@ -6,16 +6,16 @@ public class MyPcUnitMovement : UnitMovementBase
 {
     void Start()
     {
-        GameControl.Instance.OnMoving += HandleMove;
-        GameControl.Instance.OnMoveStarting += HandleMoveStart;
-        GameControl.Instance.OnMoveEnding += HandleMoveEnd;
+        GameControl.Instance.OnMove += HandleMove;
+        GameControl.Instance.OnMoveStart += HandleMoveStart;
+        GameControl.Instance.OnMoveEnd += HandleMoveEnd;
     }
 
     void OnDestroy()
     {
-        GameControl.Instance.OnMoving -= HandleMove;
-        GameControl.Instance.OnMoveStarting -= HandleMoveStart;
-        GameControl.Instance.OnMoveEnding -= HandleMoveEnd;
+        GameControl.Instance.OnMove -= HandleMove;
+        GameControl.Instance.OnMoveStart -= HandleMoveStart;
+        GameControl.Instance.OnMoveEnd -= HandleMoveEnd;
     }
 
     private void HandleMove(Vector3 direct)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameControl
 {
@@ -17,13 +18,10 @@ public class GameControl
         }
     }
 
-    public delegate void OnMove(Vector3 direct);
-    public delegate void OnMoveStart();
-    public delegate void OnMoveEnd();
-
-    public OnMove OnMoving { get; set; }
-    public OnMoveStart OnMoveStarting { get; set; }
-    public OnMoveEnd OnMoveEnding { get; set; }
+    public Action<Vector3> OnMove { get; set; }
+    public Action OnMoveStart { get; set; }
+    public Action OnMoveEnd { get; set; }
+    public Action<int, Vector3> OnMouseInput { get; set; }
 
     private GameObject controlObject;
     private UnitMovementBase movementBase;
@@ -48,11 +46,31 @@ public class GameControl
     public void OnUpdate()
     {
         UpdateKeyboard();
+        UpdateMouseInput();
     }
 
     public void Clear()
     {
 
+    }
+
+    private void UpdateMouseInput()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (OnMouseInput != null)
+            {
+                OnMouseInput(0, Input.mousePosition);
+            }
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            if (OnMouseInput != null)
+            {
+                OnMouseInput(1, Input.mousePosition);
+            }
+        }
     }
 
     private void UpdateKeyboard()
@@ -80,15 +98,15 @@ public class GameControl
 
         if (moveVectorNormal != Vector3.zero)
         {
-            if (OnMoving != null)
+            if (OnMove != null)
             {
-                OnMoving(moveVectorNormal);
+                OnMove(moveVectorNormal);
             }
             if (isMove == false)
             {
-                if (OnMoveStarting != null)
+                if (OnMoveStart != null)
                 {
-                    OnMoveStarting();
+                    OnMoveStart();
                 }
 
                 isMove = true;
@@ -98,9 +116,9 @@ public class GameControl
         {
             if (isMove == true)
             {
-                if (OnMoving != null)
+                if (OnMove != null)
                 {
-                    OnMoveEnding();
+                    OnMoveEnd();
                 }
 
                 isMove = false;

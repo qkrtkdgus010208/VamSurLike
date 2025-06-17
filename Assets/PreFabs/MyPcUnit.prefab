@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 8085691924505033050}
   - component: {fileID: 297171916394986758}
   - component: {fileID: 315097899675376694}
+  - component: {fileID: 791177872615141621}
   m_Layer: 0
   m_Name: MyPcUnit
   m_TagString: Untagged
@@ -979,6 +980,18 @@ MonoBehaviour:
   rotationTrf: {fileID: 4185243925416996138}
   rotationSpeed: 400
   animator: {fileID: 0}
+--- !u!114 &791177872615141621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618434784657062617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fc16cc5f36f56489ffb0304cc1f5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3642747282643289465
 GameObject:
   m_ObjectHideFlags: 0
