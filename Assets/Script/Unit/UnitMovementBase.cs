@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitMovementBase : MonoBehaviour
 {
     public float speed = 5.0f;
-    public Transform rotationTrf;
+    public Transform rotationTransform;
     public float rotationSpeed = 400.0f;
     public Animator animator;
 

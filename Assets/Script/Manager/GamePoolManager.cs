@@ -58,6 +58,11 @@ public class GamePoolManager
             return null;
         }
 
+        if (SkillPool[skillType].Count == 0)
+        {
+            return null;
+        }
+
         return SkillPool[skillType].Dequeue();
     }
 }

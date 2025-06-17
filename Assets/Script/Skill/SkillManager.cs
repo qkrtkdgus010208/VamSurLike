@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
+    public float currentCooltime = 0.0f;
+
     void Awake()
     {
         GameControl.Instance.OnMouseInput += OnMouseInput;
@@ -16,7 +18,7 @@ public class SkillManager : MonoBehaviour
 
     void Update()
     {
-        
+        currentCooltime += Time.deltaTime;
     }
 
     private void OnMouseInput(int index, Vector3 mousePos)
@@ -32,17 +34,32 @@ public class SkillManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 1000, layermask))
         {
             ActiveSkillData newSkillData = new ActiveSkillData();
+            newSkillData.Type = SkillType.ManualMissile;
             newSkillData.FirePosition = hit.point;
+            newSkillData.Cooltime = 0.5f;
+            newSkillData.Speed = 10.0f;
             FireSkill(newSkillData);
         }
     }
 
     public void FireSkill(ActiveSkillData skillData)
     {
+        if (currentCooltime < skillData.Cooltime)
+        {
+            return;
+        }
+
+        MyPcUnitMovement movement = GetComponent<MyPcUnitMovement>();
+        if (movement != null)
+        {
+            movement.DoManualAttack(skillData.Type, skillData.FirePosition);
+        }
+
         Vector3 startPos = new Vector3(transform.position.x, 1, transform.position.z);
         Vector3 shotDirection = (skillData.FirePosition - transform.position).normalized;
 
         FireSkillObject(skillData, startPos, shotDirection);
+        currentCooltime = 0.0f;
     }
 
     public void FireSkillObject(ActiveSkillData skillData, Vector3 startPos, Vector3 skillDir)
@@ -52,12 +69,15 @@ public class SkillManager : MonoBehaviour
         if (skillObject == null)
         {
             SkillBase newSkillObjectPrefab = Resources.Load<SkillBase>("Prefabs/Missile");
-            Instantiate(newSkillObjectPrefab, startPos, Quaternion.identity, GameDataManager.Instance.GetSkillRootTransform());
+            skillObject = Instantiate(newSkillObjectPrefab, GameDataManager.Instance.GetSkillRootTransform());
 
             if (skillObject == null)
             {
                 return;
             }
         }
+
+        skillObject.gameObject.SetActive(true);
+        skillObject.FireSkill(skillData, startPos, skillDir);
     }
 }

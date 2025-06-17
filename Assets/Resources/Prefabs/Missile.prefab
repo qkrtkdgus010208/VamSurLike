@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5428861986510162538}
-  - component: {fileID: 7946528127206259399}
+  - component: {fileID: -4330317079122438532}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3084646336365600342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7946528127206259399
+--- !u!114 &-4330317079122438532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3640273221962859972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ebab163cfc3424d8933f20d40b7d55, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b2a614f437ed6409a9e621a63186e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3807338559193647556

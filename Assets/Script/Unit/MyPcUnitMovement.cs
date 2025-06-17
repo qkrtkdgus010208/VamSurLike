@@ -18,13 +18,19 @@ public class MyPcUnitMovement : UnitMovementBase
         GameControl.Instance.OnMoveEnd -= HandleMoveEnd;
     }
 
+    public void DoManualAttack(SkillType skillType, Vector3 attackPos)
+    {
+        Vector3 attackDirect = (attackPos - transform.position).normalized;
+        rotationTransform.rotation = Quaternion.RotateTowards(rotationTransform.rotation, Quaternion.LookRotation(attackDirect), 360);
+    }
+
     private void HandleMove(Vector3 direct)
     {
         // 이동
         transform.position += direct * speed * Time.deltaTime;
 
         //회전
-        rotationTrf.rotation = Quaternion.RotateTowards(rotationTrf.rotation, Quaternion.LookRotation(direct), rotationSpeed * Time.deltaTime);
+        rotationTransform.rotation = Quaternion.RotateTowards(rotationTransform.rotation, Quaternion.LookRotation(direct), rotationSpeed * Time.deltaTime);
     }
 
     private void HandleMoveStart()
