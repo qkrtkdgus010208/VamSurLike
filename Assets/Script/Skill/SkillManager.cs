@@ -38,6 +38,7 @@ public class SkillManager : MonoBehaviour
             newSkillData.FirePosition = hit.point;
             newSkillData.Cooltime = 0.5f;
             newSkillData.Speed = 10.0f;
+            newSkillData.ActiveLevel = 2;
             FireSkill(newSkillData);
         }
     }
@@ -68,7 +69,7 @@ public class SkillManager : MonoBehaviour
 
         if (skillObject == null)
         {
-            SkillBase newSkillObjectPrefab = Resources.Load<SkillBase>("Prefabs/Missile");
+            SkillBase newSkillObjectPrefab = GameDataManager.Instance.GetSkillObjectPrefab(skillData.Type, skillData.ActiveLevel);
             skillObject = Instantiate(newSkillObjectPrefab, GameDataManager.Instance.GetSkillRootTransform());
 
             if (skillObject == null)

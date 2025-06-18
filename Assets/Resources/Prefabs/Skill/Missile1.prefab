@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5428861986510162538}
   - component: {fileID: -4330317079122438532}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: Missile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76052bdc81eba314f8cadc6978d694d0, type: 2}
+  - {fileID: 2100000, guid: 3f9d841a4fe43e84fbee47dbcf716778, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

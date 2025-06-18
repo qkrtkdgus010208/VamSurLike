@@ -1,10 +1,9 @@
-{
+﻿{
 	"Skills" :
 	[
 		{
 			"Type" : "Missile",
-			"ActiveType": "Manual",
-			"SkillIcon" : "UI/Skill/UI_Skill_Icon_PsycicAttack",
+			"ActiveType": "Auto",
 			"LevelDatas" : 
 			[
 				{
@@ -13,7 +12,6 @@
 					"Power" : 500,
 					"Size" : 1,
 					"Speed" : 10,
-					"ActiveTime" : 0.5,
 					"CoolTime" : 3
 				},
 				{
@@ -22,7 +20,6 @@
 					"Power" : 600,
 					"Size" : 1,
 					"Speed" : 15,
-					"ActiveTime" : 0.5,
 					"CoolTime" : 2.5
 				},
 			]
@@ -30,25 +27,22 @@
 		{
 			"Type" : "ManualMissile",
 			"ActiveType": "Manual",
-			"SkillIcon" : "UI/Skill/UI_Skill_Icon_Arrow_Barrage",
 			"LevelDatas" : 
 			[
 				{
 					"Level" : 1,
-					"Path" : "Prefabs/Skill/Missile3",
+					"Path" : "Prefabs/Skill/Missile1",
 					"Power" : 1000,
 					"Size" : 1,
 					"Speed" : 10,
-					"ActiveTime" : 0.5,
 					"CoolTime" : 0.4
 				},
 				{
 					"Level" : 2,
-					"Path" : "Prefabs/Skill/Missile4",
+					"Path" : "Prefabs/Skill/Missile2",
 					"Power" : 1200,
 					"Size" : 1,
 					"Speed" : 15,
-					"ActiveTime" : 0.5,
 					"CoolTime" : 0.4
 				},
 			]
@@ -64,7 +58,6 @@
 					"Power" : 1000,
 					"Size" : 1,
 					"Speed" : 10,
-					"ActiveTime" : 3.5,
 					"CoolTime" : 5
 				},
 				{
@@ -73,7 +66,6 @@
 					"Power" : 1000,
 					"Size" : 1,
 					"Speed" : 15,
-					"ActiveTime" : 3.5,
 					"CoolTime" : 4
 				},
 			]
@@ -93,7 +85,7 @@
 				},
 				{
 					"Level" : 2,
-					"Path" : "Prefabs/Skill/Missile1",
+					"Path" : "Prefabs/Skill/Missile2",
 					"Power" : 600,
 					"Size" : 1,
 					"Speed" : 15,

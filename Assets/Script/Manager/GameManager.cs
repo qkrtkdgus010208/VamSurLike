@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
         GameDataManager.Instance.Init();
         GameDataManager.Instance.SetStageData(MyPc, NpcSpawnParent, SkillObjectParent, ItemObjectParent);
         GameDataManager.Instance.SetCurrentStage(mStageId);
+        GameDataManager.Instance.LoadAll();
 
         GamePoolManager.Instance.Init();
 
