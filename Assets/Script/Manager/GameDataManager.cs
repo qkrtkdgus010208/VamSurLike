@@ -30,6 +30,8 @@ public class GameDataManager
     private Dictionary<SkillType, SkillData> SkillDatas;
     private Dictionary<string, SkillBase> SkillResources;
 
+    private Dictionary<int, StageData> StageDatas = null;
+
     public GameObject GetMyPcObject()
     {
         return MyPc;
@@ -63,6 +65,9 @@ public class GameDataManager
         SkillRoot = null;
         ItemRoot = null;
 
+        StageDatas.Clear();
+        StageDatas = null;
+
         SkillDatas.Clear();
         SkillDatas = null;
 
@@ -73,6 +78,16 @@ public class GameDataManager
     public void LoadAll()
     {
         LoadSkillData();
+    }
+
+    public StageData FindStageData(int InStageId)
+    {
+        if (StageDatas.ContainsKey(InStageId) == false)
+        {
+            return null;
+        }
+
+        return StageDatas[InStageId];
     }
 
     public void LoadSkillData()

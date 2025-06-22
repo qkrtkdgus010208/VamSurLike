@@ -24,7 +24,7 @@ public class SkillManualMissile : SkillBase
 
         while (true)
         {
-            Vector3 addForceVector = StartDir * ActiveSkillData.Speed * Time.deltaTime;
+            Vector3 addForceVector = StartDir * ActiveSkillData.ActiveSkillLevelData.Speed * Time.deltaTime;
             transform.position += new Vector3(addForceVector.x, 0, addForceVector.z);
             currentLiftTime += Time.deltaTime;
 

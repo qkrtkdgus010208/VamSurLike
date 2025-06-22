@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class FSMStageStateEnter : FSMStateBase
 {
+    private float countDown = 3;
+    private float durationTime = 0;
+
     public FSMStageStateEnter() : base(EFSMStageStateType.StageStart)
     {
 
     }
-
-    private float countDown = 3;
-    private float durationTime = 0;
-
+   
     public override void OnEnter()
     {
         base.OnEnter();
+        countDown = 0;
+        durationTime = 0;
+
+        int currentStageId = GameDataManager.Instance.Stage;
+        StageData currentStageData = GameDataManager.Instance.FindStageData(currentStageId);
+
+        if (currentStageData != null)
+        {
+            foreach (StageUnitData eachNpc in currentStageData.Units)
+            {
+                // SpawnManager.Instance 강의영상누락
+            }
+        }
     }
 
     public override void OnExit()
